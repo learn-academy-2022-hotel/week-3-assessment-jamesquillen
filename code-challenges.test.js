@@ -45,7 +45,6 @@ const fibMaker = (number) => {
   for (let i = 1; i < number - 1; i++) {
     array.push(array[i] + array[i - 1])
   }
-
   return array
 }
 
@@ -116,9 +115,9 @@ const accountTransactions3 = []
 
 describe("arraySum", () => {
   it("takes in an array and returns an array of the accumulating sum. An empty array should return an empty array", () => {
-    expect(arraySum(ccountTransactions1)).toEqual([100, -17, -23, -9])
-    expect(arraySum(ccountTransactions2)).toEqual([250, -89, 100, -96])
-    expect(arraySum(ccountTransactions1)).toEqual([])
+    expect(arraySum(accountTransactions1)).toEqual([100, 83, 60, 51])
+    expect(arraySum(accountTransactions2)).toEqual([250, 161, 261, 165])
+    expect(arraySum(accountTransactions3)).toEqual([])
   })
 })
 
@@ -129,5 +128,11 @@ describe("arraySum", () => {
 // Output: an array of the accumlating sums of the original values of the inputted array's elements
 
 // Declare a function called "arraySum" that takes an array as an argument
-// Create a for loop to iterate through the array
-// Reference the first element in the array and then add the next element in the array to it
+// Check to see if the array is not empty
+// If the array is not empty, map through the elements
+// Start a counter at zero, then add the value of each element and add that value to each subsequent element
+// If the array is empty, return an empty array
+
+const arraySum = (array) => {
+  return array.length > 0 ? array.map((sum = 0, n => sum += n)) : []
+}
